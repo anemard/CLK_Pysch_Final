@@ -1,0 +1,366 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 252, 247);
+}
+
+/* .blue-sphere {
+    height: 40vw;
+    width: 40vw;
+    background: radial-gradient(blue, white);
+    border-radius: 50%;
+    display: inline-block;
+} */
+
+.blue-sphere {
+    height: 50vw;
+    width: 50vw;
+    background: radial-gradient(
+        circle closest-side at 50% 50%,
+        #8ac2fa,
+        #98c8f8 10%,
+        #bedcfc 50%,
+        rgb(255, 252, 247)
+    );
+    position: absolute;
+    bottom: 15vh;
+    right: 5vw;
+    /* top: 250vh; */
+    z-index: -900;
+}
+
+.green-sphere {
+    height: 50vw;
+    width: 50vw;
+    background: radial-gradient(
+        circle closest-side at 50% 50%,
+        #75c378,
+        #73c979 10%,
+        #b6ebb9 50%,
+        rgb(255, 252, 247)
+    );
+    position: absolute;
+    top: 75vh;
+    right: 60vw;
+    z-index: -900;
+}
+
+.yellow-sphere {
+    height: 80vw;
+    width: 80vw;
+    background: radial-gradient(
+        circle closest-side at 50% 50%,
+        #e3eb50,
+        #edf386 10%,
+        #f9fadf 50%,
+        rgb(255, 252, 247)
+    );
+    position: absolute;
+    top: 160vh;
+    right: 0vw;
+    z-index: -900;
+}
+
+.red-sphere {
+    height: 90vw;
+    width: 90vw;
+    background: radial-gradient(
+        circle closest-side at 50% 50%,
+        #fdcbcb,
+        #f6c2c2 10%,
+        #fbe5e5 50%,
+        rgb(255, 252, 247)
+    );
+    position: absolute;
+    top: 350vh;
+    right: 30vw;
+    z-index: -900;
+}
+
+.component-page {
+    height: 95vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.component-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    width: 35vw;
+    /* border: solid black 1px; */
+}
+
+.component-body-right {
+    width: 40vw;
+    /* border: solid black 1px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.component-body-left {
+    width: 40vw;
+    /* border: solid black 1px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.component-body-whole {
+    width: 80vw;
+    /* border: solid black 1px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.component-sub-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
+}
+
+p {
+    width: 35vw;
+}
+
+li {
+    list-style-type: none;
+    padding: 2vh 0vw;
+    font-size: 1.2rem;
+}
+
+/* LANDING PAGE / LOGO  */
+
+.landing-page {
+    height: 110vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.landing-img {
+    height: 115vh;
+}
+
+.title-1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
+    padding: 3vh 13vw;
+}
+
+.title-line {
+    width: 40vw;
+    height: 0px;
+    border: solid black 1px;
+}
+
+.title-2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
+    padding: 3vh 0vw 15.5vh 0vw;
+}
+
+.nav {
+    position: absolute;
+    bottom: 35px;
+    width: 100%;
+    display: flex;
+    width: 80vw;
+    flex-direction: row;
+    justify-content: space-around;
+    align-self: center;
+}
+
+.nav-button {
+    border: solid black .5px;
+    padding: 1vh 1vw;
+    border-radius: 5vw;
+}
+
+.nav-button:hover {
+    cursor: pointer;
+}
+
+/* ABOUT / BIO / DESCRIPTION */
+
+.bio-image {
+    width: 30vw;
+}
+
+.about {
+    margin: 0px 0px 0px 2vw;
+    width: 36vw;
+}
+
+/* EXPERIENCE */
+
+.experience {
+    width: 70vw;
+    align-self: center;
+    font-size: 1.2rem;
+}
+
+.experience-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    width: 35vw;
+    padding: 0vh 0vw 5vh 0vw;
+}
+
+/* SERVICES */
+
+.services {
+    margin: 0px 0px 0px 2vw;
+    padding: 0px;
+    width: 36vw;
+    height: 30vh;
+}
+
+.services-title {
+    height: 30vh;
+    width: 35vw;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+}
+
+
+
+/* COVERAGE AND FEES */
+
+.coverage-title {
+    height: 45vh;
+    width: 40vw;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    /* border: solid black 1px; */
+}
+
+.coverage-fees {
+    margin: 0px 0px 0px 2vw;
+    width: 36vw;
+    /* border: solid black 1px; */
+    height: 45vh;
+}
+
+.fees{ 
+    padding: 0px 0px 4vh 0px;
+}
+
+.coverage-line-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:  2vh 0px;
+    font-size: 1.2rem;
+}
+
+.insurances {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:  2vh 0px;
+    flex-wrap: wrap;
+}
+
+.insurance {
+    padding: 0px 5vw 1vw 0px;
+    font-size: 1.2rem;
+}
+
+/* PUBLICATIONS */
+
+.publications-body-left {
+    width: 24vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.publications-body-center {
+    width: 28vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.publications-body-right {
+    width: 28vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.publication-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    height: 50vh;
+}
+
+.publications-list {
+    width: 26vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    z-index: 900;
+}
+
+.publication {
+    margin: 0rem 0rem 4rem 0rem;
+    font-size: 1.4rem;
+    z-index: 900;
+}
+
+.publication:hover {
+    cursor: pointer;
+    color: red;
+}
+
+
+/* CONTACT */
+
+.contact-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contact-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    width: 40vw;
+    /* border: 1px black solid; */
+    height: 55vh;
+}
+
+.contact-items {
+    /* border: black solid 1px; */
+    height: 55vh;
+}
+
+.contact-item {
+    font-size: 1.4rem;
+    padding: 0 0 4rem 0;
+}
+
+.contact-land {
+    font-size: 1.1rem;
+    width: 27vw;
+}
+
+/* FOOTER */
+
+.credit {
+    color: rgb(186, 186, 186);
+    font-size: .75rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2rem;
+}
+
+.credit a {
+    color: rgb(186, 186, 186);
+}
