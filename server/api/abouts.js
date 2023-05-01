@@ -23,3 +23,32 @@ router.get('/:id', async (req, res,next) => {
     next(err)
   }
 });
+
+router.post('/', async (req, res, next) => {
+  try {
+    const newAbout = await About.create(req.body)
+    res.json(newAbout)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const about = await About.findByPk(req.params.id)
+    await about.destroy()
+    res.send(about)
+  }
+  catch (err) {
+    next(err)
+  }
+})
+
+router.put('/:id', async (req, res, next) => {
+  try {
+    const paragraph = await About.findByPk(req.params.id)
+    res.send(await paragraph.update(req.body))
+  } catch (err) {
+    next(err)
+  }
+})

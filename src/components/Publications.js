@@ -1,24 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function Publications() {
+  let [publications, setPublications] = useState([])
+
+  const fetchPublications = async () => {
+    const {data} = await axios.get('http://localhost:8080/api/publications')
+    setPublications(data)
+  }
+
+  useEffect(() => {
+    fetchPublications()
+  }, [])
 
     return (
-      <div className='component-page'>
-        <div className='publications-body-left'>
-          <div className='publication-title'>Publications</div>
+      <div className='compontent-page-short' id='publications'>
+        <div className='component-body-left'>
+          <div className='publication-title'>Selected Publications</div>
         </div>
-        <div className='publications-body-right'>
+        <div className='component-body-right'>
           <div className='publications-list'>
             <div>
-              <div className='publication'>Deep Ecology and Ecofeminism: Social Work to Address Global Environmental Crisis, <i>Affilia</i>, 2019</div>
-              <div className='publication'>Differential Sexual Behavior Experiences of LGBQ and Transgender/ Nonbinary Young People in Colorado, <i>Youth & Society</i>, 2019</div>
+              {publications.map(pg => (<div key={pg.id}>
+                <a href={pg.url} target="_blank"><div className='publication'>{pg.title}, <i>{pg.publisher}</i>, {pg.year}</div></a>
+              </div>))}
             </div>
-          </div>
-          
-        </div>
-        <div className='publications-body-right'>
-          <div className='publications-list'>
-            <div className='publication'>Missing from the Conversation: Sexual Risk Factors Across Young People by Gender Identity and Sexual Orientation, <i>International Journal of Sexual Health</i>, 2019</div>
           </div>
         </div>
       </div>

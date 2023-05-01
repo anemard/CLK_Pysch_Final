@@ -2,10 +2,6 @@ import React from 'react'
 
 function Landing() {
 
-  const clickHandler = () => {
-    console.log("hello!")
-  }
-
     return (
       <div className='landing-page'>
         <div className='component-page'>
@@ -18,14 +14,14 @@ function Landing() {
             {/* <span className='landing-img'><img src={butterfly} /></span> */}
           </div>
         </div>
-        <div className='nav'>
-          <div className='nav-button' onClick={clickHandler}>About</div>
-          <div className='nav-button' onClick={clickHandler}>Experience</div>
-          <div className='nav-button' onClick={clickHandler}>Services</div>
-          <div className='nav-button' onClick={clickHandler}>Coverage & Fees</div>
-          <div className='nav-button' onClick={clickHandler}>Publications</div>
-          <div className='nav-button' onClick={clickHandler}>Contact</div>
-        </div>
+        {/* <div className='nav'>
+          <div className='nav-button'><a href="/#about">About</a></div>
+          <div className='nav-button'><a href="/#experience">Experience</a></div>
+          <div className='nav-button'><a href="/#services">Services</a></div>
+          <div className='nav-button'><a href="/#coverage">Coverage & Fees</a></div>
+          <div className='nav-button'><a href="/#publications">Publications</a></div>
+          <div className='nav-button'><a href="/#contact">Contact</a></div>
+        </div> */}
       </div>
     )
 }

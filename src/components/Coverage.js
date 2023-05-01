@@ -1,41 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function Coverage() {
+  let [coverage, setCoverage] = useState([])
+
+  const fetchCoverage = async () => {
+    const {data} = await axios.get('http://localhost:8080/api/insurances')
+    setCoverage(data)
+  }
+
+  useEffect(() => {
+    fetchCoverage()
+  }, [])
 
     return (
-      <div className='component-page'>
+      <div className='compontent-page-short' id='coverage'>
         <div className='component-body-left'>
             <div className='coverage-title'>Coverage & Fees</div>
         </div>
 
         <div className='component-body-right'>
             <div className='coverage-fees'>
-                <div className='component-sub-title'>Fees</div>
-                <div className='fees'>
-                    <div className='coverage-line-item'>
-                        <div>Session Fee</div>
-                        <div>$175 per session</div>
-                    </div>
-                    <div className='coverage-line-item'>
-                        <div>Couples Session Fee</div>
-                        <div>$175 per session</div>
-                    </div>
-                    <div className='coverage-line-item'>
-                        <div>Sliding Scale</div>
-                        <div>Yes</div>
-                    </div>
-                </div>
-
-                <div>
-                    <div className='component-sub-title'>Insurances</div>
-                    <div className='insurances'>
-                        <div className='insurance'>Blue Cross</div>
-                        <div className='insurance'>Blue Shield</div>
-                        <div >Optium</div>
-                        <div className='insurance'>UnitedHealthcare UHC | UBH</div>
-                        <div>Out of network</div>
-                    </div>
-                </div>
+            {coverage.map(pg => (<div key={pg.id} className='paragraph'>
+                <p>{pg.paragraph}</p>
+            </div>))}
             </div>
         </div>
       </div>

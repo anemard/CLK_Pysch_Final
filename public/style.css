@@ -4,14 +4,6 @@ body {
     background-color: rgb(255, 252, 247);
 }
 
-/* .blue-sphere {
-    height: 40vw;
-    width: 40vw;
-    background: radial-gradient(blue, white);
-    border-radius: 50%;
-    display: inline-block;
-} */
-
 .blue-sphere {
     height: 50vw;
     width: 50vw;
@@ -25,7 +17,6 @@ body {
     position: absolute;
     bottom: 15vh;
     right: 5vw;
-    /* top: 250vh; */
     z-index: -900;
 }
 
@@ -56,7 +47,7 @@ body {
         rgb(255, 252, 247)
     );
     position: absolute;
-    top: 160vh;
+    top: 190vh;
     right: 0vw;
     z-index: -900;
 }
@@ -72,13 +63,19 @@ body {
         rgb(255, 252, 247)
     );
     position: absolute;
-    top: 350vh;
+    top: 400vh;
     right: 30vw;
     z-index: -900;
 }
 
 .component-page {
-    height: 95vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.compontent-page-short {
+    min-height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -92,7 +89,7 @@ body {
 }
 
 .component-body-right {
-    width: 40vw;
+    width: 45vw;
     /* border: solid black 1px; */
     display: flex;
     flex-direction: column;
@@ -100,7 +97,7 @@ body {
 }
 
 .component-body-left {
-    width: 40vw;
+    width: 35vw;
     /* border: solid black 1px; */
     display: flex;
     flex-direction: column;
@@ -110,6 +107,7 @@ body {
 
 .component-body-whole {
     width: 80vw;
+    min-height: 100vh;
     /* border: solid black 1px; */
     display: flex;
     flex-direction: column;
@@ -121,9 +119,12 @@ body {
     font-size: 1.25rem;
 }
 
-p {
-    width: 35vw;
+.paragraph {
+    font-size: 1.2rem;
+    padding: 0 0 2vh 0;
 }
+
+
 
 li {
     list-style-type: none;
@@ -131,10 +132,21 @@ li {
     font-size: 1.2rem;
 }
 
+a { 
+    color: black;
+    text-decoration: none;
+}
+
+a:hover { 
+    color: red;
+    text-decoration: none;
+}
+
+
 /* LANDING PAGE / LOGO  */
 
 .landing-page {
-    height: 110vh;
+    height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -163,11 +175,12 @@ li {
 }
 
 .nav {
-    position: absolute;
-    bottom: 35px;
-    width: 100%;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 15px;
+    width: 94.5vw;
+    padding: 4vh 2vw 10vh 2vw;
     display: flex;
-    width: 80vw;
     flex-direction: row;
     justify-content: space-around;
     align-self: center;
@@ -186,12 +199,28 @@ li {
 /* ABOUT / BIO / DESCRIPTION */
 
 .bio-image {
-    width: 30vw;
+    width: 25vw;
 }
 
 .about {
-    margin: 0px 0px 0px 2vw;
-    width: 36vw;
+    padding: 0px 2vw 0px 2vw;
+    width: 41vw;
+}
+
+.input-paragraph {
+    width: 100%;
+    height: 15vh;
+    padding: 0;
+    margin: 0;
+}
+
+.addform {
+    display: flex;
+    flex-direction: column;
+}
+
+.addButton {
+    width: 100%;
 }
 
 /* EXPERIENCE */
@@ -209,32 +238,77 @@ li {
     padding: 0vh 0vw 5vh 0vw;
 }
 
+.experience-paragraphs {
+    padding: 0 0 2vh 0
+}
+
+/* INTERESTS */
+.interests-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.interests {
+    height: 75vh;
+    margin: 0 0 0 2vw;
+    font-size: 1.2rem;
+    /* border: 1px black solid */
+}
+
+.interests-title {
+    height: 75vh;
+    width: 30vw;
+    padding: 0 0 0 5vw;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    /* border: 1px black solid */
+}
+
+
 /* SERVICES */
 
-.services {
-    margin: 0px 0px 0px 2vw;
-    padding: 0px;
-    width: 36vw;
-    height: 30vh;
+.services-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .services-title {
-    height: 30vh;
     width: 35vw;
+    padding: 0 0 5vh 5vw;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
+    /* border: 1px black solid; */
 }
 
+.services {
+    padding: 0 3vw 0 5vw;
+    font-size: 1.2rem;
+}
 
+.butterfly {
+    width: 36vw;
+    margin: 0 0 0 2vw
+}
 
 /* COVERAGE AND FEES */
 
+.coverage-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .coverage-title {
     height: 45vh;
-    width: 40vw;
+    width: 30vw;
+    padding: 0 0 0 5vw;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
-    /* border: solid black 1px; */
 }
 
 .coverage-fees {
@@ -287,7 +361,7 @@ li {
 }
 
 .publications-body-right {
-    width: 28vw;
+    width: 56vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -296,20 +370,22 @@ li {
 .publication-title {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
-    height: 50vh;
+    padding: 0 0 0 5vw;
+    height: 65vh;
+    width: 30vw;
 }
 
 .publications-list {
     width: 26vw;
-    height: 50vh;
     display: flex;
     flex-direction: row;
     z-index: 900;
+    margin: 0 0 0 2vw;
 }
 
 .publication {
     margin: 0rem 0rem 4rem 0rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     z-index: 900;
 }
 
@@ -332,24 +408,23 @@ li {
 .contact-title {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
-    width: 40vw;
-    /* border: 1px black solid; */
-    height: 55vh;
+    width: 30vw;
+    padding: 0 0 0 5vw;
+    height: 56.5vh;
 }
 
 .contact-items {
-    /* border: black solid 1px; */
-    height: 55vh;
+    margin: 0 2vw 0 2vw;
+    height: 56.5vh;
 }
 
 .contact-item {
-    font-size: 1.4rem;
-    padding: 0 0 4rem 0;
+    font-size: 1.2rem;
+    padding: 0 0 2rem 0;
 }
 
 .contact-land {
-    font-size: 1.1rem;
-    width: 27vw;
+    font-size: 1rem;
 }
 
 /* FOOTER */
@@ -364,3 +439,29 @@ li {
 .credit a {
     color: rgb(186, 186, 186);
 }
+
+.signin {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    padding: 5vh 5vw;
+    border-bottom: 1px black solid;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: rgb(221, 207, 181);
+    border: none;
+    color: rgb(255, 252, 247);
+    padding: 10px 15px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+  }
