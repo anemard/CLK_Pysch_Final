@@ -1,56 +1,63 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { InterestsEdit } from './'
+import butterfly from '../img/butterfly.png';
 
-function Interests() {
-  let [interests, setInterests] = useState([{list: []}])
-  let isAdmin = true;
+function Interests(props) {
+  let [interests, setInterests] = useState([])
+  let [item, setItem] = useState('')
+  let { admin } = props
 
   const fetchInterests = async () => {
     const {data} = await axios.get('http://localhost:8080/api/interests/')
     setInterests(data)
   }
 
-  const deleteInterests = async () => {
-
+  const createInterest = async ({ item }) => {
+    const { data } = await axios.post('http://localhost:8080/api/interests', {
+      item
+    })
+    fetchInterests()
   }
 
-  const updateInterests = async () => {
-
+  const submitAddInterest = async(evt) => {
+    evt.preventDefault();
+    createInterest({item})
+    setItem('')
   }
 
-  const addInterests = async () => {
-
+  const deleteInterest = async (id) => {
+    const { data } = await axios.delete(`http://localhost:8080/api/interests/${id}`)
+    fetchInterests()
   }
-
-  let count = 0
 
   useEffect(() => {
     fetchInterests()
   }, [])
 
     return (
-      <div className='compontent-page-short' id='interests'>
-        
-        <div className='component-body-left'>
-        <div className='interests-title'>Specialties & Interests</div>
-        </div>
-        <div className='component-body-right'>
-          {(isAdmin) ? (<div>
-            <p>This is ADMIN!</p>
-            
+      <div className='component-page'>
+          <div className='butterfly-component'>
+            <img src={butterfly} className='butterfly-img' />
+          </div>
+          <div className='interests-body-left' id='interests'>
+            <div className='component-title'>Specialties & Interests</div>
+            {(admin) ? (<div>
+              <div>{interests.map(interest => (<div key={interest.id}><InterestsEdit interest={interest} /><button onClick={()=>{deleteInterest(interest.id)}}>Remove</button>
+                  </div>))}
+              </div>
+              <form className="addform" onSubmit={submitAddInterest}>
+                <input name="service" value={item} placeholder="New interest" type="text" onChange={(evt) => setItem(evt.target.value)} />
+                <button type="submit" className="addButton">Submit</button>
+                <button type="button" className="addButton" onClick={() => setItem('')}>Reset</button>
+              </form>
 
-
-
-          </div>) : (<div>{interests.map(items => (<div key={items.id} className='interests'>
-                  {items.list.map(item => (<p key={item}>{item}</p>))}
-                </div>))}</div>)}
-
-
-
-                
-        </div>
+            </div>) : (<div className="interests">{interests.map(interest => (<div key={interest.id}>{interest.item}
+                  </div>))}</div>)}    
+          </div>
       </div>
     )
 }
 
 export default Interests
+

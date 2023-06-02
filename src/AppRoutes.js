@@ -13,8 +13,6 @@ function AppRoutes() {
     setAdmin(data2)
   }
 
-  console.log(admin)
-
   useEffect(() => {
     fetchAdmin()
   }, [])

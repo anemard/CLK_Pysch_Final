@@ -1,36 +1,52 @@
-import React from 'react'
+import React,  { useRef, useState }  from 'react'
+import emailjs from 'emailjs-com'
+import flowers from '../img/flowers.png';
 
 function Contact() {
+  let [name, setName] = useState('')
+  let [email, setEmail] = useState('')
+  let [phone, setPhone] = useState('')
+  let [message, setMessage] = useState('')
+  const form = useRef();
+
+  let sendEmail=(e)=>{
+    e.preventDefault();
+    // 'service_b1sxy6w'
+
+    emailjs.sendForm('service_076v88x', 'template_j0tgiw8', form.current, 'kJ19dM_OPcWbI2AcR')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+
+      setName('')
+      setEmail('')
+      setMessage('')
+      setPhone('')
+}
+
+  console.log('name', name, 'email', email, 'phone', phone, 'mess', message)
 
     return (
-      <div className='compontent-page-short' id='contact'>
+      <div className='component-page'>
         <div className='component-body-left'>
-          <div className='contact-title'>Contact</div>
-          
+          <img src={flowers} />
         </div>
 
-        <div className='component-body-right'>
-          <div className='contact-items'>
-            <div className='contact-item'>
-              <div>(773) 231-8407</div>
-              <div>clk.psychotherapy@gmail.com</div>
-            </div>
-            <div className='contact-item'>
-              <div>CLK Psychotherapy PLLC</div>
-              <div>5547 N Ravenswood Ave, Suite 407</div>
-              <div>Chicago*, IL 60640</div>
-            </div>
-            <div className='contact-item'>
-              <div>Illinois Licensed Clinical Social Worker (LCSW), License Number: 149.024234</div>
-            </div>
-            <div className='contact-item'>
-              <div>Illinois Professional Limited Liability Company (PLLC), License Number: 248.004022</div>
-            </div>
-
-            <div className='contact-land'>
-              <span>* I reside on the traditional homelands of the people of the Council of Three Fires, the Ojibwe, Potawatomi, and Odawa as well as the Menominee, Miami and Ho-Chunk nations. <a href="https://www.youtube.com/watch?v=ETOhNzBsiKA" target="_blank"><u>Watch here</u></a> to understand why I make this acknowledgement.</span>
-            </div>
-          </div>
+        <div className='component-body-right' id='contact'>
+          <div className='component-title'>Contact</div>
+          <form ref={form} className='contact-form' onSubmit={sendEmail}>
+            <div><label>Name</label></div>
+            <div><input name="name" value={name} type="text" onChange={(evt) => setName(evt.target.value)} required /></div>
+            <div><label>E-mail</label></div>
+            <div><input name="email" value={email} type="email" onChange={(evt) => setEmail(evt.target.value)} required /></div>
+            <div><label>Phone</label></div>
+            <div><input name="phone" value={phone} type="text" onChange={(evt) => setPhone(evt.target.value)} required /></div>
+            <div><label>Message</label></div>
+            <div><textarea name="message" value={message} type="text" rows='10' onChange={(evt) => setMessage(evt.target.value)} required /></div>
+            <div><input type='submit' value="Send" className='input-button' /></div>
+          </form>
         </div>
       </div>
     )

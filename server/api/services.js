@@ -32,3 +32,23 @@ router.post('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const service = await Service.findByPk(req.params.id)
+    await service.destroy()
+    res.send(service)
+  }
+  catch (err) {
+    next(err)
+  }
+})
+
+router.put('/:id', async (req, res, next) => {
+  try {
+    const paragraph = await Service.findByPk(req.params.id)
+    res.send(await paragraph.update(req.body))
+  } catch (err) {
+    next(err)
+  }
+})

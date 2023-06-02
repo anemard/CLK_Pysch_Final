@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 
-function ServiceEdit(props) {
+function CoverageEdit(props) {
     let { paragraph } = props
     let [editParagraph, setEditParagraph] = useState('')
     let [id, setId] = useState(0)
     let [edit, setEdit] = useState(false)
 
     let updateParagraph = async (id, paragraph)=>{
-      const res = await axios.put(`http://localhost:8080/api/services/${id}`, {
+      const res = await axios.put(`http://localhost:8080/api/insurances/${id}`, {
         paragraph
       })
     }
@@ -29,7 +29,7 @@ function ServiceEdit(props) {
         
             <div>
               <textarea 
-                name="services-paragraph" 
+                name="coverage-paragraph" 
                 value={editParagraph} 
                 type="text" 
                 className="input-paragraph" 
@@ -47,4 +47,4 @@ function ServiceEdit(props) {
     )
 }
 
-export default ServiceEdit
+export default CoverageEdit

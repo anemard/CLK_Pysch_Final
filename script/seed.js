@@ -84,20 +84,38 @@ async function seed() {
 
   const Interests = await Promise.all([
     Interest.create({
-      list: [
-        'Psychoanalytic Psychotherapy',
-        'Traumatic Stress',
-        'Anxiety & Depression',
-        'ADHD',
-        'Grief, Loss and Mourning',
-        'Life transitions',
-        'Sex & Relationships',
-        'Immigration & Children of Immigrants',
-        'Biculturality & Multiculturality',
-        'Sexuality and Gender Identity',
-        'Family Conflict & Estrangement']
+      item: 'Psychoanalytic Psychotherapy'
     }),
-
+    Interest.create({
+      item: 'Traumatic Stress'
+    }),
+    Interest.create({
+      item: 'Anxiety & Depression'
+    }),
+    Interest.create({
+      item: 'ADHD'
+    }),
+    Interest.create({
+      item: 'Grief, Loss and Mourning'
+    }),
+    Interest.create({
+      item: 'Life transitions'
+    }),
+    Interest.create({
+      item: 'Sex & Relationships'
+    }),
+    Interest.create({
+      item: 'Immigration & Children of Immigrants'
+    }),
+    Interest.create({
+      item: 'Biculturality & Multiculturality'
+    }),
+    Interest.create({
+      item: 'Sexuality and Gender Identity'
+    }),
+    Interest.create({
+      item: 'Family Conflict & Estrangement'
+    })
   ])
 
 

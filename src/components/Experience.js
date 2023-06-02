@@ -30,8 +30,8 @@ function Experience(props) {
   }, [])
 
     return (
-      <div className='component-page' id='experience'>
-        <div className='component-body-whole'>
+      <div className='component-page'>
+        <div className='component-body-whole' id='experience'>
             <div className='experience'>
               <div className='experience-title'>Training & Experience</div>
                 {(admin) ? (<div>

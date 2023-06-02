@@ -8,6 +8,7 @@ function App() {
       <div className="green-sphere"></div>
       <div className="yellow-sphere"></div>
       <div className="red-sphere"></div>
+      <div className="green-sphere-2"></div>
       <AppRoutes />
     </div>
   );

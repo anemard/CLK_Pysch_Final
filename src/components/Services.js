@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import butterfly from '../img/butterfly-bw.jpg';
+// import butterfly from '../img/butterfly-bw.jpg';
 import { ServicesEdit } from './'
 
 function Services(props) {
   let { admin } = props
-  admin = true
   let [services, setServices] = useState([])
   let [paragraph, setParagraph] = useState('')
 
@@ -27,18 +26,23 @@ function Services(props) {
     setParagraph('')
   }
 
+  const deleteService = async (id) => {
+    const { data } = await axios.delete(`http://localhost:8080/api/services/${id}`)
+    fetchServices()
+  }
+
   useEffect(() => {
     fetchServices()
   }, [])
 
     return (
-      <div className='compontent-page-short' id='services'>
-        <div className='component-body-right'>
+      <div className='component-page' >
+        <div className='component-body-right' id='services'>
             <div className='services-title'>Services</div>
             {(admin) ? 
             (<>
               {services.map(pg => (<div key={pg.id} className='services'>
-                  <ServicesEdit paragraph={pg} />
+                  <ServicesEdit paragraph={pg} /><button onClick={()=>{deleteService(pg.id)}}>Remove</button>
               </div>))}
               <form className="addform" onSubmit={submitAddServices}>
                 <textarea name="service" value={paragraph} placeholder="New service paragraph" type="text" className="input-paragraph" onChange={(evt) => setParagraph(evt.target.value)} />
@@ -48,16 +52,17 @@ function Services(props) {
             </>) : 
             (<>
               {services.map(pg => (<div key={pg.id} className='services'>
-                  <div className='paragraph'>{pg}</div>
+                  <div className='paragraph'>{pg.paragraph}</div>
               </div>))}
-            </>)}
+            </> )}
             
         </div>
         <div className='component-body-left'>
-            <img src={butterfly} className='butterfly' />
+            
         </div>
       </div>
     )
 }
 
 export default Services
+

@@ -2,8 +2,8 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Interest = db.define('interests', {
-  list: {
-    type: Sequelize.ARRAY(Sequelize.STRING),
+  item: {
+    type: Sequelize.STRING(1000),
     allowNull: false
   }
 })

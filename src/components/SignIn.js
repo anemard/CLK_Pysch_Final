@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { About, Contact, Coverage, Experience, Interests, Landing, Nav, Publications, Services, Footer } from './'
 
 function SignIn(props) {
   let {admin} = props
+  const users = JSON.parse(localStorage.getItem('users'))
   let [user, setUser] = useState('')
   let [pass, setPass] = useState('')
   let [isAdmin, setIsAdmin] = useState(false)
+
+  useEffect(() => {
+    if (users.isAdmin) { 
+      setIsAdmin(true)
+    }
+  }, [])
 
     const submitSignin = (evt) => {
         evt.preventDefault();
@@ -13,20 +20,40 @@ function SignIn(props) {
           setIsAdmin(true)
           setPass('');
           setUser('')
+          localStorage.setItem('users',
+            JSON.stringify({isAdmin : true})
+          )
           console.log('in!')
         }
         console.log('out..')
     }
 
+    const signout = () => {
+      localStorage.setItem('users',
+      JSON.stringify({isAdmin : false})
+      )
+      setIsAdmin(false)
+    }
+
     return (
       <>
-      <div className='signin' onSubmit={submitSignin}>
-        <form>
+      <div>
+        {(isAdmin) ? 
+          (
+          <div className='signin'>
+            <div>Welcome Cary!</div>
+            <button onClick={signout}>Sign out</button>
+          </div>
+          ) :
+          (<form className='signin' onSubmit={submitSignin}>
             <input value={user} placeholder="username" type="text" onChange={(evt) => setUser(evt.target.value)} />
-            <input value={pass} placeholder="pass" type="password" onChange={(evt) => setPass(evt.target.value)} />
-            <button>Sign In</button>
-            <button onClick={() => setIsAdmin(false)}>Sign out</button>
-        </form>
+            <input value={pass} placeholder="password" type="password" onChange={(evt) => setPass(evt.target.value)} />
+            <button>SignIn</button>
+          </form>
+          )
+      }
+        
+        
       </div>
       <Landing />
       <Nav />

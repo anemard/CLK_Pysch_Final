@@ -23,3 +23,32 @@ router.get('/:id', async (req, res,next) => {
     next(err)
   }
 });
+
+router.post('/', async (req, res, next) => {
+  try {
+    const newInterest = await Interest.create(req.body)
+    res.json(newInterest)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const interest = await Interest.findByPk(req.params.id)
+    await interest.destroy()
+    res.send(interest)
+  }
+  catch (err) {
+    next(err)
+  }
+})
+
+router.put('/:id', async (req, res, next) => {
+  try {
+    const item = await Interest.findByPk(req.params.id)
+    res.send(await item.update(req.body))
+  } catch (err) {
+    next(err)
+  }
+})
