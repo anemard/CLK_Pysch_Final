@@ -1,1 +1,2 @@
 # CLK_Pysch_Final
+This therapist's website is built and designed by an emard. It was built using React.js and PostgreSQL database with Axios for db calls. It also includes an Email.js plugin for onwebsite emails to business owner.
